@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laravel</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="snZRNdmqPGUDuu0SDQtPpqsizQNC9zZgdc3VtKQj">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="http://omms.test/css/datepicker/datepicker.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+          integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+          crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="http://omms.test/css/app.css">
+    <link rel="stylesheet" href="http://omms.test/plugin/flowbite/flowbite.min.css"/>
+    <link rel="stylesheet" href="http://omms.test/plugin/MCDatepicker/mc-calendar.min.css"/>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+    <!-- Main Header -->
+
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+        </ul>
+
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"> Breakfast</i>
+                    <span class="badge badge-primary navbar-badge mt-4 breakfast-val"></span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"> Lunch</i>
+                    <span class="badge badge-primary navbar-badge mt-4 lunch-val"></span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"> Dinner</i>
+                    <span class="badge badge-primary navbar-badge mt-4 dinner-val"></span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"> Event</i>
+                    <span class="badge badge-primary navbar-badge mt-4 event-val"></span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"> Other</i>
+                    <span class="badge badge-primary navbar-badge mt-4 other-val"></span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"> Tea</i>
+                    <span class="badge badge-primary navbar-badge mt-4 tea-val"></span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"> Extra</i>
+                    <span class="badge badge-primary navbar-badge mt-4 extra-val"></span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"> Dessert</i>
+                    <span class="badge badge-primary navbar-badge mt-4 dessert-val"></span>
+                </a>
+            </li>
+
+
+            <li class="nav-item dropdown user-menu">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    <img src="https://alt.army.lk/signaller/sites/all/themes/bootstrap/common/images/signals-logo.jpg"
+                         class="user-image img-circle elevation-2" alt="User Image">
+                    <span class="d-none d-md-inline">EMAPB EKANAYAKE  </span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <!-- User image -->
+                    <li class="user-header bg-primary">
+                        <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"
+                             class="img-circle elevation-2"
+                             alt="User Image">
+                        <p>
+                            EMAPB EKANAYAKE
+                            <small>Member since Jan. 2023</small>
+                        </p>
+                    </li>
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <a href="#" class="btn btn-default btn-flat float-right"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Sign out
+                        </a>
+                        <form id="logout-form" action="http://omms.test/logout" method="POST" class="d-none">
+                            <input type="hidden" name="_token" value="snZRNdmqPGUDuu0SDQtPpqsizQNC9zZgdc3VtKQj"></form>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <a href="http://omms.test/home" class="brand-link">
+            <img src="https://alt.army.lk/signaller/sites/all/themes/bootstrap/common/images/signals-logo.jpg"
+                 alt="AdminLTE Logo"
+                 class="brand-image img-circle elevation-3">
+            <span class="brand-text font-weight-light">Laravel</span>
+            <span> - SLSC</span>
+
+        </a>
+        <div class="sidebar" style="overflow: hidden">
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <li class="nav-item">
+                        <a href="http://omms.test/home" class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/home.png" style=" float: left;">
+                            <p>Home</p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a href="http://omms.test/admin/roles" class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/roles.png" style=" float: left;">
+                            <p>Manage Role</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://omms.test/admin/users" class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/users.png" style=" float: left;">
+                            <p>Manage Users</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://omms.test/admin/officer" class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/register-officer.png"
+                                 style=" float: left;">
+                            <p>Register Officers</p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a href="http://omms.test/admin/category"
+                           class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/category.png" style=" float: left;">
+                            <p>Mess Item Category</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="http://omms.test/admin/item" class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/items.png" style=" float: left;">
+                            <p>Sub Menu Item</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="http://omms.test/admin/menu" class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/mess-menu.png" style=" float: left;">
+                            <p>Mess Menu</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/daily-ration.png"
+                                 style=" float: left;">
+                            <p>
+                                Mess Daily Ration
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="http://omms.test/admin/ration"
+                                   class="nav-link ">
+
+                                    <img class="nav-icon" src="http://omms.test/flat-icon/ration.png"
+                                         style=" float: left;">
+                                    <p>Messing</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="http://omms.test/admin/tea-items" class="nav-link">
+
+                                    <img class="nav-icon" src="http://omms.test/flat-icon/tea.png"
+                                         style=" float: left;">
+                                    <p>Tea</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="extra-messing" class="nav-link">
+
+                                    <img class="nav-icon" src="http://omms.test/flat-icon/extra.png"
+                                         style=" float: left;">
+                                    <p>Extra Messing</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="dessert" class="nav-link">
+
+                                    <img class="nav-icon" src="http://omms.test/flat-icon/dessert.png"
+                                         style=" float: left;">
+                                    <p>Dessert</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="http://omms.test/admin/orders" class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/order.png" style=" float: left;">
+                            <p>Orders</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://omms.test/admin/order-details"
+                           class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/view-stock.png" style=" float: left;">
+                            <p>View Orders</p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a href="http://omms.test/admin/bar"
+                           class="nav-link ">
+
+                            <img class="nav-icon" src="http://omms.test/flat-icon/bar.png">
+                            <p>Bar Orders</p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item    has-treeview  menu-open">
+                        <a href="#" class="nav-link  ">
+                            <img class="nav-icon" src="http://omms.test/flat-icon/stock.png" style=" float: left;">
+                            <p>Stock</p>
+                        </a>
+                        <ul class="nav nav-treeview">
+
+
+                            <li class="nav-item">
+                                <a href="http://omms.test/admin/stock/home"
+                                   class="nav-link active">
+                                    <i class="nav-icon text-teal fas fa-home"></i>
+                                    <p>Home</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item    has-treeview  ">
+                                <a href="#" class="nav-link  ">
+                                    <i class="nav-icon  text-info fas fa fa-receipt"></i>
+                                    <p>Good Receive</p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/gRNHeader/create"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-info"></i>
+                                            <p>Add Good Receive </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/gRNHeader"
+                                           class="nav-link    ">
+                                            <i
+                                                class="far fa-circle nav-icon text-info"></i>
+                                            <p>All Good Receive</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item    has-treeview  ">
+                                <a href="#" class="nav-link  ">
+                                    <i class="nav-icon text-danger fas fa fa-clipboard-list"></i>
+                                    <p>Good Issue</p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/issueHeader/create"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-danger"></i>
+                                            <p>Add Good Issue </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/issueHeader"
+                                           class="nav-link    ">
+                                            <i
+                                                class="far fa-circle nav-icon text-danger"></i>
+                                            <p>All Good Issues</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item    has-treeview  ">
+                                <a href="#" class="nav-link  ">
+                                    <i class="nav-icon text-warning fas fa fa-cubes"></i>
+                                    <p>Items</p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/stockItem/create"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Create Item </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/stockItem"
+                                           class="nav-link    ">
+                                            <i
+                                                class="far fa-circle nav-icon text-warning"></i>
+                                            <p>All Items</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item    has-treeview  menu-open">
+                                <a href="#" class="nav-link  ">
+                                    <i class="nav-icon text-purple fas fa fa-cash-register"></i>
+                                    <p>Stocks</p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/stock"
+                                           class="nav-link    ">
+                                            <i
+                                                class="far fa-circle nav-icon text-purple"></i>
+                                            <p>All Stocks</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/stockAdjustment/create"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-purple"></i>
+                                            <p>Stock Adjustment </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item    has-treeview  ">
+                                <a href="#" class="nav-link  ">
+                                    <i class="nav-icon text-blue fas fa fa-book"></i>
+                                    <p>Stocks Book</p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/stockBook/selcetQuarter"
+                                           class="nav-link    ">
+                                            <i
+                                                class="far fa-circle nav-icon text-blue"></i>
+                                            <p>Select Duration</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item    has-treeview  ">
+                                <a href="#" class="nav-link  ">
+                                    <i class="nav-icon fas text-gradient-navy fa fa-archive"></i>
+                                    <p>Reports</p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/reports/singleitem"
+                                           class="nav-link    ">
+                                            <i
+                                                class="far fa-circle nav-icon text-gradient-navy"></i>
+                                            <p>Current stock of a item</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/reports/grnin"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-gradient-navy"></i>
+                                            <p>GRN and IN Details </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/reports/in"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-gradient-navy"></i>
+                                            <p>Item Issued</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/reports/grnprice"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-gradient-navy"></i>
+                                            <p>Last GRN Price</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/reports/allitems"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-gradient-navy"></i>
+                                            <p>Category wise stock</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/reports/stock"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-gradient-navy"></i>
+                                            <p>Stock</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/reports/recive_expier"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-gradient-navy"></i>
+                                            <p>Expire GRN</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/reports/outstock"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-gradient-navy"></i>
+                                            <p>Out of stock Items</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item    has-treeview  ">
+                                <a href="#" class="nav-link  ">
+                                    <i class="nav-icon text-lime fas fa fa-truck"></i>
+                                    <p>Supplier</p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/supplier/create"
+                                           class="nav-link   ">
+                                            <i
+                                                class="far fa-circle nav-icon text-lime"></i>
+                                            <p>New Supplier </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/supplier"
+                                           class="nav-link    ">
+                                            <i
+                                                class="far fa-circle nav-icon text-lime"></i>
+                                            <p>All Suppliers</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item    has-treeview  ">
+                                <a href="#" class="nav-link  ">
+                                    <i class="nav-icon text-yellow fas fa fa-cog"></i>
+                                    <p>Settings</p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/settings/stockCategory"
+                                           class="nav-link    ">
+                                            <i
+                                                class="fas fa fa-list-alt nav-icon text-yellow"></i>
+                                            <p>Category</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="http://omms.test/admin/stock/settings/measureUnit"
+                                           class="nav-link    ">
+                                            <i
+                                                class="fas fa fa-balance-scale nav-icon text-yellow"></i>
+                                            <p>Measure Unit</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </nav>
+        </div>
+
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="row mt-2">
+
+                        <div onclick="location.href='http://omms.test/admin/stock/stock';"
+                             class="col-12 col-sm-6 col-md-4 p-3">
+                            <div class="info-box mb-3">
+                            <span class="info-box-icon bg-purple elevation-1">
+                                <i class="fas fa-solid fa-cash-register"></i>
+
+                            </span>
+
+                                <div class="info-box-content" style="background-color: rgba(134,7,253,0.47)">
+                                <span class="info-box-text">
+                                    <a href="http://omms.test/admin/stock/stock" class="text-dark">Current Stocks</a>
+                                </span>
+                                    <span class="info-box-number">1
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="location.href='http://omms.test/admin/stock/stockItem';"
+                             class="col-12 col-sm-6 col-md-4 p-3">
+                            <div class="info-box mb-3">
+                            <span class="info-box-icon bg-warning elevation-1">
+                                <i class="fas fa-cubes"></i>
+                            </span>
+                                <div class="info-box-content" style="background-color: rgba(253,233,7,0.47)">
+                                <span class="info-box-text">
+                                    <a href="http://omms.test/admin/stock/stockItem" class="small-box-footer text-dark">Items Details</a>
+                                </span>
+                                    <span class="info-box-number">
+                                  1
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="location.href='http://omms.test/admin/stock/settings/stockCategory';"
+                             class="col-12 col-sm-6 col-md-4 p-3">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-olive elevation-1"><i class="fas fa-list-alt"></i></span>
+
+                                <div class="info-box-content" style="background-color: rgba(40,253,7,0.47)">
+                                    <span class="info-box-text"><a
+                                        href="http://omms.test/admin/stock/settings/stockCategory"
+                                        class="text-dark">Category</a></span>
+                                    <span class="info-box-number">4</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="location.href='http://omms.test/admin/stock/gRNHeader';"
+                             class="col-12 col-sm-6 col-md-4 p-3">
+                            <div class="info-box">
+                            <span class="info-box-icon bg-info elevation-1">
+                                <i class="fas fa-receipt"></i>
+                            </span>
+                                <div class="info-box-content" style="background-color: rgba(7,175,253,0.47)">
+                                <span class="info-box-text">
+                                    <a href="http://omms.test/admin/stock/gRNHeader"
+                                       class="text-dark">Good Receive Note</a>
+                                </span>
+                                    <span class="info-box-number">0
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="location.href='http://omms.test/admin/stock/issueHeader';"
+                             class="col-12 col-sm-6 col-md-4 p-3">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-danger elevation-1"> <i class="fas fa-clipboard-list"></i>  </span>
+                                <div class="info-box-content" style="background-color: rgba(238,11,19,0.38)">
+                                <span class="info-box-text">
+                                    <a href="http://omms.test/admin/stock/issueHeader" class="text-dark">Good Issues Note</a>
+                                </span>
+                                    <span class="info-box-number">0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="location.href='http://omms.test/admin/stock/settings/measureUnit';"
+                             class=" col-sm-6 col-md-4 p-3">
+                            <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1"><i
+                                class="fas fa-balance-scale"></i></span>
+
+                                <div class="info-box-content" style="background-color: rgba(163,253,7,0.47)">
+                                <span class="info-box-text"><a href="http://omms.test/admin/stock/settings/measureUnit"
+                                                               class="text-dark">Measure Unit </a></span>
+                                    <span class="info-box-number">5 </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onclick="location.href='http://omms.test/admin/stock/supplier';"
+                             class="col-12 col-sm-6 col-md-4 p-3">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-lime elevation-1"><i class="fas fa-truck"></i></span>
+                                <div class="info-box-content" style="background-color: rgba(7,253,48,0.47)">
+                                    <span class="info-box-text"><a href="http://omms.test/admin/stock/supplier"
+                                                                   class="text-dark">Supplier </a></span>
+                                    <span class="info-box-number"> 1</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-12">
+                            <div class="col-6">
+                                <canvas id="stockChart"></canvas>
+                            </div>
+                            <div class="col-6">
+                                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-block">
+            <b>Version</b> 1.0
+        </div>
+        <strong>Copyright © 2022 . &copy; 2014-2022 <a href="">Software Solution by Directorate of Information
+            Technology</a>.</strong> - SRI LANKA ARMY
+
+    </footer>
+</div>
+
+<script src="http://omms.test/js/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    //get ration counts
+
+    $(document).ready(function () {
+
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            dataType: 'json',
+            url: 'http://omms.test/admin/get-order-notifications',
+            type: 'POST',
+            success: function (response) {
+
+                $(".breakfast-val").empty();
+                $(".lunch-val").empty();
+                $(".dinner-val").empty();
+                $(".event-val").empty();
+                $(".other-val").empty();
+
+                $(".tea-val").empty();
+                $(".extra-val").empty();
+                $(".dessert-val").empty();
+
+
+                if (response.breakfastOrders) {
+                    $(".breakfast-val").append(response.breakfastOrders);
+
+                }
+                if (response.lunchOrders) {
+                    $(".lunch-val").append(response.lunchOrders);
+
+                }
+                if (response.dinnerOrders) {
+                    $(".dinner-val").append(response.dinnerOrders);
+
+                }
+                if (response.eventOrders) {
+                    $(".event-val").append(response.eventOrders);
+
+                }
+                if (response.otherOrders) {
+                    $(".other-val").append(response.otherOrders);
+
+                }
+
+                if (response.teaOrders) {
+                    $(".tea-val").append(response.teaOrders);
+
+                }
+                if (response.dessertOrders) {
+                    $(".dessert-val").append(response.dessertOrders);
+
+                }
+                if (response.extraOrders) {
+                    $(".extra-val").append(response.extraOrders);
+
+                }
+
+            },
+            error: function (error) {
+            }
+        });
+
+    });
+</script>
+
+<script src="http://omms.test/plugin/flowbite/datepicker.js"></script>
+<script src="http://omms.test/plugin/MCDatepicker/mc-calendar.min.js"></script>
+<script src="http://omms.test/plugin/flowbite/flowbite.js"></script>
+<script src="http://omms.test/plugin/chart/charts.js"></script>
+<script src="http://omms.test/plugin/chart/chartjs-plugin-datalabels@2.js"></script>
+
+<script>
+    $(function () {
+
+
+        var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145",
+            "#042d86",
+            "#d78d2c",
+            "#9b088f",
+            "#d53c3c",
+            "#98e857",
+            "#55e7e7",
+            "#e89797",
+            "#6179cc",
+            "#3df140",
+            "#e86d09",
+            "#0d17d7",
+            "rgba(7,175,253,0.47)",
+            "#daef51",
+            "#424b3e",
+            "#85858d",
+            "#9d045f",
+        ];
+
+        var stockChartData = {
+
+            labels: [],
+            datasets: [
+                {
+
+                    label: 'Stocks',
+                    backgroundColor: barColors,
+                    data: [],
+                    datalabels: {
+                        formatter: function (value, context) {
+                            return 'Total Stock ' + context.chart.data.labels[context.dataIndex] + ' : \n' + value.toLocaleString();
+                        },
+                        labels: {
+                            title: {
+                                color: '#000',
+                                font: {
+                                    weight: 'bold'
+                                },
+                            },
+                        },
+                    }
+                },
+            ]
+        }
+        const config = {
+            type: 'bar',
+            data: stockChartData,
+            plugins: [ChartDataLabels],
+            options: {
+                layout: {
+                    padding: {
+                        top: 200
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: {
+                            color: '#000000', beginAtZero: true, font: {
+                                weight: 'bold'
+                            },
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#000000', beginAtZero: true, font: {
+                                weight: 'bold'
+                            },
+                        }
+                    }
+                },
+                plugins: {
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'end',
+                        rotation: -90,
+                        labels: {
+                            title: {
+                                color: '#2ce356'
+                            }
+                        },
+                        formatter: function (value, context) {
+                            return context.chart.data.labels[context.data];
+                        }
+                    },
+                    legend: {
+                        display: false,
+                        labels: {
+                            color: 'rgb(255, 99, 132)'
+                        }
+                    }
+                }
+            }
+        };
+
+        const stockChart = new Chart(
+            document.getElementById('stockChart'),
+            config
+        );
+
+
+        var xValues = [];
+        var yValues = [];
+
+        new Chart("myChart", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Available Stock"
+                }
+            }
+        });
+
+
+    })
+</script>
+
+</body>
+</html>
